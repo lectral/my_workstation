@@ -1,0 +1,23 @@
+- name: Clone YADM 
+  git:
+    repo: "https://github.com/TheLocehiliosan/yadm.git" 
+    dest: "/home/vagrant/.yadm-project"
+- name: Install YADM -> create directory
+  file:
+    path: "/home/vagrant/.bin"
+    state: directory 
+- name: Install YADM -> create symlink
+  file:
+    src: "/home/vagrant/.yadm-project/yadm"
+    dest: "/home/vagrant/.bin/yadm"
+    state: link
+- name: Clone dotfiles
+  shell: /home/vagrant/.bin/yadm clone https://github.com/lectral/dotfiles.git 
+  args: 
+    chdir: "/home/vagrant"
+    creates: "/home/vagrant/.yadm/repo.git/config"
+- name: Update dotfiles
+  shell: /home/vagrant/.bin/yadm pull 
+  args: 
+    chdir: "/home/vagrant"
+

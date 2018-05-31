@@ -1,0 +1,17 @@
+- name: Upgrade Arch
+  become: yes
+  pacman:
+    update_cache: yes
+    upgrade: yes 
+- name: Install common packages 
+  become: yes
+  package:
+    name: "{{ item }}" 
+    state: latest 
+  with_items:
+    - unzip
+    - zip
+    - the_silver_searcher
+    - git       
+    - curl
+
