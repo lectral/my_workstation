@@ -1,8 +1,8 @@
-- name: Install VIM 
+- name: install VIM 
   package: 
     name: vim
     state: latest
-- name:
+- name: install Vundle
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
     dest: "/home/vagrant/.vim/bundle/Vundle.vim"  

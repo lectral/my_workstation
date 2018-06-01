@@ -1,9 +1,9 @@
-- name: Upgrade Arch
+- name: upgrade Arch
   become: yes
   pacman:
     update_cache: yes
     upgrade: yes 
-- name: Install common packages 
+- name: install common packages 
   become: yes
   package:
     name: "{{ item }}" 
