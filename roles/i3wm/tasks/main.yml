@@ -1,0 +1,31 @@
+- name: install xserver
+  become: yes
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - xorg-server
+    - xorg-xinit
+- name: install conky 
+  become: yes
+  package:
+    name: conky 
+    state: latest
+- name: install i3status 
+  become: yes
+  package:
+    name: i3status 
+    state: latest
+- name: install i3
+  become: yes
+  package:
+    name: i3-wm
+    state: latest
+- name: install gui apps 
+  become: yes
+  package: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - firefox
+    - rxvt-unicode 
